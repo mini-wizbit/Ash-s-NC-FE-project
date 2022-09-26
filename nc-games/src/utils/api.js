@@ -7,9 +7,7 @@ const gamesApi = axios.create({
 export const getReviews = (category) => {
   let queryStr = "/reviews";
   if (category) queryStr += `?category=${category}`;
-  console.log(queryStr, "< is this right?");
   return gamesApi.get(queryStr).then(({ data }) => {
-    console.log(data, "from api");
     return data;
   });
 };
