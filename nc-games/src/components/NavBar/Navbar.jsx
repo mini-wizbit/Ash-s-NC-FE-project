@@ -7,7 +7,7 @@ export const Navbar =()=>{
         <div>
         <nav>
             <Link to="/">Home</Link>
-            <Link to="/api/reviews">Game Reviews</Link>
+            <Link to="/reviews">Game Reviews</Link>
         </nav>
     </div>
         )
