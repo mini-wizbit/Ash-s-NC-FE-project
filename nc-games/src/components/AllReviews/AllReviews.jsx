@@ -2,21 +2,22 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { getReviews } from "../../utils/api";
+import CategoryList from "../CategoriesList/CategoriesList.jsx";
 
 
 export const AllReviews = ()=>{
 
     const [reviews, setReviews] = useState([])
+    const [theCategory, setTheCategory]=useState("")
     useEffect(()=>{
-        getReviews().then((ApiReviews)=>{
-            console.log(ApiReviews);
+        getReviews(theCategory).then((ApiReviews)=>{
             setReviews(ApiReviews.reviewArray)
         })
-    }, [])
+    }, [theCategory])
 
     return (
         <div>
-            <p>placeholder for set category</p>
+            <CategoryList setTheCategory={setTheCategory}></CategoryList>
             <p>sort by X</p>
             <ul>
                 <div className="review-list">
