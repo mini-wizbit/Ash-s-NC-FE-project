@@ -1,8 +1,10 @@
-import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
-import { useParams } from "react-router-dom";
-import { getReviewById } from "../../utils/api";
+
+import React from "react"
+import { useEffect } from "react"
+import { useState } from "react"
+import { useParams } from "react-router-dom"
+import { getReviewById, voteUpdate } from "../../utils/api"
+
 
 export const ReviewById = () => {
   const { review_id } = useParams();
@@ -16,6 +18,7 @@ export const ReviewById = () => {
       setReviewById(thisReview);
     });
   }, [review_id]);
+
 
   return loading ? (
     <p>...Loading</p>
