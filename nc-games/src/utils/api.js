@@ -12,12 +12,14 @@ export const getReviews = (category) => {
   });
 };
 
+// this find all possibilities of what categories are
 export const getCategories = () => {
   return gamesApi.get("/categories").then(({ data }) => {
     return data.categories;
   });
 };
 
+//this is to sort the data
 export const getReviewsByCategories = (category) => {
   return gamesApi.get(`/reviews?category=${category}`).then(({ data }) => {
     return data.reviews;
