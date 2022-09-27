@@ -1,7 +1,7 @@
 const axios = require("axios");
 
 const gamesApi = axios.create({
-  baseURL: "https://ashs-nc-games-project.herokuapp.com/api",
+  baseURL: "https://ashs-nc-example-games.herokuapp.com/api",
 });
 
 export const getReviews = (param) => {
