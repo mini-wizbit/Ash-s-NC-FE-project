@@ -28,18 +28,16 @@ export const AllReviews = ()=>{
                 <div className="review-list">
                     {reviews.map((review) =>{
                         return(
-                            <div>
-                            <li>
-                                <div className="review-card">
+                            
+                            <li className="review-cards">
                                     <h2 className="review-title">{review.title}</h2>
                                     <img src={review.review_img_url} alt={review.title}></img>
                                     <h3 className="review-owner">Review by {review.owner}</h3>
                                     <h4 className="review-votes"> Votes:{review.votes}</h4>
                                     <p className="review-category">Category:{review.category}</p>
                                     <Link to={`/reviews/${review.review_id}`} key={review.review_id}>More Info Here</Link>
-                                </div>
                             </li>
-                            </div>
+                            
                         )
                     })}
                 </div>
