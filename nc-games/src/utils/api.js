@@ -4,12 +4,28 @@ const gamesApi = axios.create({
   baseURL: "https://ashs-nc-games-project.herokuapp.com/api",
 });
 
-export const getReviews = (category) => {
-  let queryStr = "/reviews";
+export const getReviews = (param) => {
+  if (param) {
+    return gamesApi
+      .get("/reviews", {
+        params: {
+          category: param,
+        },
+      })
+      .then(({ data }) => {
+        return data;
+      });
+  } else {
+    return gamesApi.get("/reviews").then(({ data }) => {
+      return data;
+    });
+  }
+  // i feel like this is just more code??
+  /*let queryStr = "/reviews";
   if (category) queryStr += `?category=${category}`;
   return gamesApi.get(queryStr).then(({ data }) => {
     return data;
-  });
+  });*/
 };
 
 export const getCategories = () => {
