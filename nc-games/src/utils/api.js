@@ -5,21 +5,15 @@ const gamesApi = axios.create({
 });
 
 export const getReviews = (param) => {
-  if (param) {
-    return gamesApi
-      .get("/reviews", {
-        params: {
-          category: param,
-        },
-      })
-      .then(({ data }) => {
-        return data;
-      });
-  } else {
-    return gamesApi.get("/reviews").then(({ data }) => {
+  return gamesApi
+    .get("/reviews", {
+      params: {
+        category: param,
+      },
+    })
+    .then(({ data }) => {
       return data;
     });
-  }
 };
 
 export const getCategories = () => {
@@ -37,5 +31,11 @@ export const getReviewById = (review_id) => {
 export const voteUpdate = (review_id, votes) => {
   return gamesApi.patch(`reviews/${review_id}`, { votes }).then(({ data }) => {
     return data.review;
+  });
+};
+
+export const commentsById = (review_id) => {
+  return gamesApi.get(`/reviews/${review_id}/comments`).then(({ data }) => {
+    return data.commentsById;
   });
 };

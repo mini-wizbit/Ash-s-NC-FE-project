@@ -4,6 +4,7 @@ import { useEffect } from "react"
 import { useState } from "react"
 import { useParams } from "react-router-dom"
 import { getReviewById, voteUpdate } from "../../utils/api"
+import { Comments } from "../Comments/Comments"
 
 
 export const ReviewById = () => {
@@ -45,6 +46,8 @@ export const ReviewById = () => {
       <button onClick={dislikeVote}>dislike</button>
       <h4>{reviewById.owner}</h4>
       <p>{reviewById.category}</p>
+    <Comments />
     </div>
+    
   );
 };
