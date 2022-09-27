@@ -1,13 +1,20 @@
 import React from "react";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
+import { commentPost } from "../../utils/api";
 
 export const PostComment = () =>{
 
     const {review_id} = useParams()
+    const[theComment, setTheComment]=useState("")
 
 
     const submit =(e)=>{
         e.preventDefault();
+        setTheComment(e.target.value)
+        console.log(theComment);
+    //spacing
+    //commentPost(review_id, "XYZ")
     }
 
     return(
