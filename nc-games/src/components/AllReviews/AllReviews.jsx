@@ -7,14 +7,14 @@ import CategoryList from "../CategoriesList/CategoriesList.jsx";
 
 export const AllReviews = () => {
   const [reviews, setReviews] = useState([]);
-  const [theCategory, setTheCategory] = useState("");
+  const [theCategory, setTheCategory] = useState(undefined);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setLoading(true);
     getReviews(theCategory).then((ApiReviews) => {
       setLoading(false);
-      setReviews(ApiReviews.reviewArray);
+      setReviews(ApiReviews.reviews);
     });
   }, [theCategory]);
 
