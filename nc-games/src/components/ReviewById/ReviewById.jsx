@@ -2,13 +2,24 @@ import React from "react"
 import { useEffect } from "react"
 import { useState } from "react"
 import { useParams } from "react-router-dom"
-import { getReviewById } from "../../utils/api"
+import { getReviewById, voteUpdate } from "../../utils/api"
 
 
 
 export const ReviewById = () =>{
     const { review_id } = useParams()
     const [reviewNumber, setReviewNumber]= useState(1)
+    const [vote, setVotes]=useState(0)
+
+    const likeVote = ()=>{
+        setVotes((currCount)=> currCount + 1);
+        voteUpdate(review_id, 1)
+    }
+
+    const dislikeVote = ()=>{
+        setVotes((currCount)=> currCount - 1);
+        voteUpdate(review_id, -1)
+    }
 
 
     useEffect(()=>{
@@ -28,6 +39,9 @@ export const ReviewById = () =>{
                 <h4>{reviewNumber.votes}</h4>
                 <h4>{reviewNumber.owner}</h4>
                 <p>{reviewNumber.category}</p>
+                <h4>{reviewNumber.votes + vote}</h4>
+                <button onClick={likeVote}>Like</button>
+                <button onClick={dislikeVote}>Dislike</button>
             </li>
 
         </div>
