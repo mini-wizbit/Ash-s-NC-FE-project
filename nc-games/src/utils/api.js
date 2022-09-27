@@ -42,10 +42,10 @@ export const commentsById = (review_id) => {
 };
 
 export const commentPost = (review_id, comment) => {
+  console.log(comment, "<< this");
   return gamesApi
     .post(`/reviews/${review_id}/comments`, comment)
     .then(({ data }) => {
-      console.log(data);
       return data;
     });
 };
