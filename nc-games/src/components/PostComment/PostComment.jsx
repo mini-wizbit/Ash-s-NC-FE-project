@@ -11,10 +11,11 @@ export const PostComment = () =>{
 
     const submit =(e)=>{
         e.preventDefault();
-        setTheComment(e.target.value)
-        console.log(theComment);
+        setTheComment(e.target[0].value)
     //spacing
-    //commentPost(review_id, "XYZ")
+    commentPost(review_id, {theComment}).then((apiPostComment)=>{
+        console.log(apiPostComment, "< in postComment")
+    })
     }
 
     return(
