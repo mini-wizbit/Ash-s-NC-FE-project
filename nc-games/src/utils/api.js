@@ -39,3 +39,12 @@ export const voteUpdate = (review_id, votes) => {
     return data.review;
   });
 };
+
+export const commentPost = (review_id, comment) => {
+  return gamesApi
+    .post(`/reviews/${review_id}/comments`, comment)
+    .then(({ data }) => {
+      console.log(data);
+      return data;
+    });
+};
