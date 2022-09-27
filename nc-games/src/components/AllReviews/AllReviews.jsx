@@ -14,7 +14,7 @@ export const AllReviews = () => {
     setLoading(true);
     getReviews(theCategory).then((ApiReviews) => {
       setLoading(false);
-      setReviews(ApiReviews.reviewArray);
+      setReviews(ApiReviews.reviews);
     });
   }, [theCategory]);
 

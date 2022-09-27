@@ -1,7 +1,7 @@
 const axios = require("axios");
 
 const gamesApi = axios.create({
-  baseURL: "https://ashs-nc-games-project.herokuapp.com/api",
+  baseURL: "https://ashs-nc-example-games.herokuapp.com/api",
 });
 
 export const getReviews = (param) => {
@@ -21,21 +21,22 @@ export const getCategories = () => {
     return data.categories;
   });
 };
-
 export const getReviewById = (review_id) => {
   return gamesApi.get(`reviews/${review_id}`).then(({ data }) => {
-    return data.game;
-  });
-};
-
-export const voteUpdate = (review_id, votes) => {
-  return gamesApi.patch(`reviews/${review_id}`, { votes }).then(({ data }) => {
     return data.review;
   });
 };
 
+export const voteUpdate = (review_id, inc_votes) => {
+  return gamesApi
+    .patch(`reviews/${review_id}`, { inc_votes })
+    .then(({ data }) => {
+      return data.review;
+    });
+};
+
 export const commentsById = (review_id) => {
   return gamesApi.get(`/reviews/${review_id}/comments`).then(({ data }) => {
-    return data.commentsById;
+    return data.comments;
   });
 };
