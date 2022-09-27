@@ -26,8 +26,6 @@ export const AllReviews = () => {
       <p>sort by X</p>
       <ul>
         <div className="review-list">
-          {" "}
-          {/*<- for styling in css as it will at as container */}
           {reviews.map((review) => {
             return (
               <li className="review-cards">
