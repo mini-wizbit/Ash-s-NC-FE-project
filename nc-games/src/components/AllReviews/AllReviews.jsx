@@ -10,13 +10,17 @@ export const AllReviews = ()=>{
 
     const [reviews, setReviews] = useState([])
     const [theCategory, setTheCategory]=useState("")
+    const [loading, setLoading] = useState(true)
+
     useEffect(()=>{
+        setLoading(true)
         getReviews(theCategory).then((ApiReviews)=>{
+            setLoading(false)
             setReviews(ApiReviews.reviewArray)
         })
     }, [theCategory])
 
-    return (
+    return loading? (<p>...Loading please wait</p>):(
         <div>
             <CategoryList setTheCategory={setTheCategory}></CategoryList>
             <p>sort by X</p>
