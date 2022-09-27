@@ -34,8 +34,6 @@ export const getCategories = () => {
   });
 };
 
-// sorry I didn't even realize, <- this will be deleted before merge
-
 export const getReviewById = (review_id) => {
   return gamesApi.get(`reviews/${review_id}`).then(({ data }) => {
     return data.game;
