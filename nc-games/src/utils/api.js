@@ -20,12 +20,6 @@ export const getReviews = (param) => {
       return data;
     });
   }
-  // i feel like this is just more code??
-  /*let queryStr = "/reviews";
-  if (category) queryStr += `?category=${category}`;
-  return gamesApi.get(queryStr).then(({ data }) => {
-    return data;
-  });*/
 };
 
 export const getCategories = () => {
