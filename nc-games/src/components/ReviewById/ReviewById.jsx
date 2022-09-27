@@ -36,8 +36,7 @@ export const ReviewById = () =>{
                 <h2>{reviewNumber.title}</h2>
                 <img src={reviewNumber.review_img_url} alt={reviewNumber.title} className="reviewById-card-Img"></img>
                 <p>{reviewNumber.review_body}</p>
-                <h4>{reviewNumber.votes}</h4>
-                <h4>{reviewNumber.owner}</h4>
+                <h3>{reviewNumber.owner}</h3>
                 <p>{reviewNumber.category}</p>
                 <h4>{reviewNumber.votes + vote}</h4>
                 <button onClick={likeVote}>Like</button>
