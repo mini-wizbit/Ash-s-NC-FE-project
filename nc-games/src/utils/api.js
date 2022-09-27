@@ -12,19 +12,13 @@ export const getReviews = (category) => {
   });
 };
 
-// this find all possibilities of what categories are
 export const getCategories = () => {
   return gamesApi.get("/categories").then(({ data }) => {
     return data.categories;
   });
 };
 
-//this is to sort the data
-export const getReviewsByCategories = (category) => {
-  return gamesApi.get(`/reviews?category=${category}`).then(({ data }) => {
-    return data.reviews;
-  });
-};
+// sorry I didn't even realize, <- this will be deleted before merge
 
 export const getReviewById = (review_id) => {
   return gamesApi.get(`reviews/${review_id}`).then(({ data }) => {
