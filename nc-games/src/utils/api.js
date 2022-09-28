@@ -40,3 +40,12 @@ export const commentsById = (review_id) => {
     return data.comments;
   });
 };
+
+export const commentPost = (review_id, comment) => {
+  console.log(comment, "<< this");
+  return gamesApi
+    .post(`/reviews/${review_id}/comments`, comment)
+    .then(({ data }) => {
+      return data;
+    });
+};
