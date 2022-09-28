@@ -16,13 +16,18 @@ export const ReviewById = () => {
   const [reviewById, setReviewById] = useState(1);
   const [loading, setLoading] = useState(true);
   const [vote, setVote]= useState(0)
+  const[yourVote, setYourVote]=useState(null)
   
-  const likeVote =()=>{
-      setVote((currCount) => currCount + 1)
+  const likeVote =(e)=>{
+    e.currentTarget.disabled = true
+    setYourVote("Liked!")  
+    setVote((currCount) => currCount + 1)
       voteUpdate(review_id, 1)
     }
-    const dislikeVote =()=>{
-        setVote((currCount) => currCount - 1)
+    const dislikeVote =(e)=>{
+      e.currentTarget.disabled = true
+      setYourVote("Disliked!")  
+      setVote((currCount) => currCount - 1)
         voteUpdate(review_id, -1)
     }
     
@@ -46,6 +51,7 @@ export const ReviewById = () => {
       ></img>
       <p>{reviewById.review_body}</p>
       <h4>{reviewById.votes + vote}</h4>
+      <h4>{yourVote}</h4>
       <button onClick={likeVote}>like</button>
       <button onClick={dislikeVote}>dislike</button>
       <h4>{reviewById.owner}</h4>
