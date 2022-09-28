@@ -1,0 +1,15 @@
+
+
+.App {
+    font-family: "lato", sans-serif;
+    text-align: center;
+    background: linear-gradient(60deg, rgba(84,58,183,1)0%,  rgba(0,172,193,1)100%);
+}
+
+@media only screen and (max-width: 600px){
+    .App {
+        font-family: "lato", sans-serif;
+        text-align: center;
+        background: linear-gradient(60deg, rgba(84,58,183,1)0%,  rgba(0,172,193,1)100%);
+    }
+}

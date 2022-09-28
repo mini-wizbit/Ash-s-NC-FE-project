@@ -5,6 +5,7 @@ import { Header } from "./components/Header/Header";
 import { Navbar } from "./components/NavBar/Navbar";
 import { AllReviews } from "./components/AllReviews/AllReviews";
 import { ReviewById } from "./components/ReviewById/ReviewById";
+import "./fonts.css";
 
 function App() {
   return (
@@ -16,7 +17,6 @@ function App() {
         <Route path="/reviews" element={<AllReviews />} />
         <Route path="/reviews/:review_id" element={<ReviewById />} />
       </Routes>
-      <p>routes are home, reviews, users</p>
     </div>
   );
 }
