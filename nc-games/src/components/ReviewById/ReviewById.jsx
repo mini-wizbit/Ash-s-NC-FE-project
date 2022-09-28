@@ -56,8 +56,8 @@ export const ReviewById = () => {
       <button onClick={dislikeVote}>dislike</button>
       <h4>{reviewById.owner}</h4>
       <p>{reviewById.category}</p>
-   <Comments />
       <PostComment />
+   <Comments />
 
  
 
