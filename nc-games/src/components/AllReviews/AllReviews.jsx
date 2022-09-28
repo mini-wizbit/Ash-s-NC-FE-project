@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getReviews } from "../../utils/api";
 import CategoryList from "../CategoriesList/CategoriesList.jsx";
+import { SortReviews } from "../SortReviews/SortReviews";
 
 export const AllReviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -23,6 +24,7 @@ export const AllReviews = () => {
   ) : (
     <div>
       <CategoryList setTheCategory={setTheCategory}></CategoryList>
+      <SortReviews setReviews={setReviews}></SortReviews>
       <p>sort by X</p>
       <ul>
         <div className="review-list">
