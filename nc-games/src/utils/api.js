@@ -47,9 +47,8 @@ export const voteUpdate = (review_id, inc_votes) => {
 
 export const commentsById = (review_id) => {
   return gamesApi
-    .get(`/reviews/${review_id}/comment`)
+    .get(`/reviews/${review_id}/comments`)
     .then(({ data }) => {
-      //</comments the s is needed but trying to test errors
       return data.comments;
     })
     .catch((error) => {
@@ -61,7 +60,7 @@ export const commentsById = (review_id) => {
 export const commentPost = (review_id, comment) => {
   console.log(comment, "<< this");
   return gamesApi
-    .post(`/reviews/${review_id}/comment`, comment) //</comments the s is needed but trying to test errors
+    .post(`/reviews/${review_id}/comments`, comment)
     .then(({ data }) => {
       return data;
     })
