@@ -46,15 +46,20 @@ export const ReviewById = () => {
   useEffect(() => {
     setLoading(true);
     getReviewById(review_id).then((thisReview) => {
-      setLoading(false);
-      setReviewById(thisReview);
+      if (thisReview.message) {
+        setError(true);
+        return <p>Something went wrong....</p>;
+      } else {
+        setLoading(false);
+        setReviewById(thisReview);
+      }
     });
   }, [review_id]);
 
-  return loading ? (
-    <p>...Loading</p>
-  ) : error ? (
+  return error ? (
     <p>Oops... something went wrong please try again</p>
+  ) : loading ? (
+    <p>...Loading</p>
   ) : (
     <div className="reviewById-card">
       <h2>{reviewById.title}</h2>
