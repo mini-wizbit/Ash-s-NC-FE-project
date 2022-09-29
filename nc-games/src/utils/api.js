@@ -13,6 +13,10 @@ export const getReviews = (param) => {
     })
     .then(({ data }) => {
       return data;
+    })
+    .catch((error) => {
+      console.log(error);
+      return error;
     });
 };
 
@@ -47,6 +51,10 @@ export const commentPost = (review_id, comment) => {
     .post(`/reviews/${review_id}/comments`, comment)
     .then(({ data }) => {
       return data;
+    })
+    .catch((error) => {
+      console.log(error);
+      return error;
     });
 };
 

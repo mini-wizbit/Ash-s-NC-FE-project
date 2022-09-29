@@ -10,17 +10,25 @@ export const AllReviews = () => {
   const [reviews, setReviews] = useState([]);
   const [theCategory, setTheCategory] = useState(undefined);
   const [loading, setLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
 
   useEffect(() => {
     setLoading(true);
-    getReviews(theCategory).then((ApiReviews) => {
-      setLoading(false);
-      setReviews(ApiReviews.reviews);
-    });
+    getReviews(theCategory)
+      .then((ApiReviews) => {
+        setIsError(true);
+        setLoading(false);
+        setReviews(ApiReviews.reviews);
+      })
+      .catch((error) => {
+        setIsError(true);
+      });
   }, [theCategory]);
 
   return loading ? (
     <p>...Loading please wait</p>
+  ) : isError ? (
+    <p>Oops... something went wrong.</p>
   ) : (
     <div>
       <CategoryList setTheCategory={setTheCategory}></CategoryList>
