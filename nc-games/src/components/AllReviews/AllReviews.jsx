@@ -25,10 +25,10 @@ export const AllReviews = () => {
       });
   }, [theCategory]);
 
-  return loading ? (
-    <p>...Loading please wait</p>
-  ) : isError ? (
+  return isError ? (
     <p>Oops... something went wrong.</p>
+  ) : loading ? (
+    <p>...Loading please wait</p>
   ) : (
     <div>
       <CategoryList setTheCategory={setTheCategory}></CategoryList>
