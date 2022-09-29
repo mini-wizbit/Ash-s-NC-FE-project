@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { getReviews } from "../../utils/api";
 import CategoryList from "../CategoriesList/CategoriesList.jsx";
 import { SortReviews } from "../SortReviews/SortReviews";
+import "./AllReviews.css";
 
 export const AllReviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -42,16 +43,22 @@ export const AllReviews = () => {
             return (
               <li className="review-cards">
                 <h2 className="review-title">{review.title}</h2>
-                <img src={review.review_img_url} alt={review.title}></img>
-                <h3 className="review-owner">Review by {review.owner}</h3>
-                <h4 className="review-votes"> Votes:{review.votes}</h4>
-                <p className="review-category">Category:{review.category}</p>
-                <Link
-                  to={`/reviews/${review.review_id}`}
-                  key={review.review_id}
-                >
-                  More Info Here
-                </Link>
+                <img
+                  classname="review-img"
+                  src={review.review_img_url}
+                  alt={review.title}
+                ></img>
+                <div className="review-extras">
+                  <h3 className="review-owner">Review by {review.owner}</h3>
+                  <h4 className="review-votes"> Votes:{review.votes}</h4>
+                  <p className="review-category">Category:{review.category}</p>
+                  <Link
+                    to={`/reviews/${review.review_id}`}
+                    key={review.review_id}
+                  >
+                    More Info Here
+                  </Link>
+                </div>
               </li>
             );
           })}
