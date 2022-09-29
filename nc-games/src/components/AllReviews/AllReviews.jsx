@@ -24,9 +24,9 @@ export const AllReviews = () => {
   ) : (
     <div>
       <CategoryList setTheCategory={setTheCategory}></CategoryList>
-      <SortReviews 
-      setReviews={setReviews}
-      theCategory={theCategory}
+      <SortReviews
+        setReviews={setReviews}
+        theCategory={theCategory}
       ></SortReviews>
       <p>sort by X</p>
       <ul>
