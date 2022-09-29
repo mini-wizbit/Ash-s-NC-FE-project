@@ -6,6 +6,7 @@ import { Navbar } from "./components/NavBar/Navbar";
 import { AllReviews } from "./components/AllReviews/AllReviews";
 import { ReviewById } from "./components/ReviewById/ReviewById";
 import "./fonts.css";
+import { Users } from "./components/Users/Users";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/reviews" element={<AllReviews />} />
         <Route path="/reviews/:review_id" element={<ReviewById />} />
+        <Route path="/users" element={<Users />} />
       </Routes>
     </div>
   );
