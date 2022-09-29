@@ -28,7 +28,6 @@ export const AllReviews = () => {
         setReviews={setReviews}
         theCategory={theCategory}
       ></SortReviews>
-      <p>sort by X</p>
       <ul>
         <div className="review-list">
           {reviews.map((review) => {
