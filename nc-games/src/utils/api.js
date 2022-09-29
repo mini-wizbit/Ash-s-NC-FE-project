@@ -83,3 +83,9 @@ export const reviewsByQueries = (theCategory, sortByValue, orderByValue) => {
       return data.reviews;
     });
 };
+
+export const deleteCommentById = (comment_id) => {
+  return gamesApi.delete(`/comments/${comment_id}`).then((result) => {
+    return result.data;
+  });
+};

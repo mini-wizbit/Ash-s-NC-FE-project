@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { commentsById } from "../../utils/api";
+import { DeleteComment } from "../DeleteComments/DeleteComment";
 
 export const Comments = () => {
   const { review_id } = useParams();
@@ -19,6 +20,7 @@ export const Comments = () => {
         setLoading(false);
         setComments(apiCommentsById);
       }
+
     });
   }, [review_id]);
 
@@ -27,9 +29,10 @@ export const Comments = () => {
     return timeStr;
   };
 
+
   return isError ? (
     <p>Oops.. something went wrong...</p>
-  ) : loading ? (
+  ) : loading ? (  
     <p>...loading</p>
   ) : (
     <div className="comments-box">
@@ -45,6 +48,8 @@ export const Comments = () => {
                 <p>{realTime(comment.created_at)}</p>
                 <p className="lineBreaker"></p>
               </li>
+              <DeleteComment comment={comment} />
+
             </>
           );
         })}
