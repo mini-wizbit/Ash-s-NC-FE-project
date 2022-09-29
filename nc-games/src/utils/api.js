@@ -13,6 +13,10 @@ export const getReviews = (param) => {
     })
     .then(({ data }) => {
       return data;
+    })
+    .catch((error) => {
+      console.log(error);
+      return error;
     });
 };
 
@@ -22,9 +26,15 @@ export const getCategories = () => {
   });
 };
 export const getReviewById = (review_id) => {
-  return gamesApi.get(`reviews/${review_id}`).then(({ data }) => {
-    return data.review;
-  });
+  return gamesApi
+    .get(`reviews/${review_id}`)
+    .then(({ data }) => {
+      return data.review;
+    })
+    .catch((error) => {
+      console.log(error, "< axios error");
+      return error;
+    });
 };
 
 export const voteUpdate = (review_id, inc_votes) => {
@@ -36,9 +46,15 @@ export const voteUpdate = (review_id, inc_votes) => {
 };
 
 export const commentsById = (review_id) => {
-  return gamesApi.get(`/reviews/${review_id}/comments`).then(({ data }) => {
-    return data.comments;
-  });
+  return gamesApi
+    .get(`/reviews/${review_id}/comments`)
+    .then(({ data }) => {
+      return data.comments;
+    })
+    .catch((error) => {
+      console.log(error);
+      return error;
+    });
 };
 
 export const commentPost = (review_id, comment) => {
@@ -47,6 +63,10 @@ export const commentPost = (review_id, comment) => {
     .post(`/reviews/${review_id}/comments`, comment)
     .then(({ data }) => {
       return data;
+    })
+    .catch((error) => {
+      console.log(error);
+      return error;
     });
 };
 

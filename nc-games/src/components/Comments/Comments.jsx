@@ -8,12 +8,19 @@ export const Comments = () => {
   const { review_id } = useParams();
   const [comments, setComments] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
 
   useEffect(() => {
+    setIsError(false);
     setLoading(true);
     commentsById(review_id).then((apiCommentsById) => {
-      setLoading(false);
-      setComments(apiCommentsById);
+      if (apiCommentsById.message) {
+        setIsError(true);
+      } else {
+        setLoading(false);
+        setComments(apiCommentsById);
+      }
+
     });
   }, [review_id]);
 
@@ -22,7 +29,10 @@ export const Comments = () => {
     return timeStr;
   };
 
-  return loading ? (
+
+  return isError ? (
+    <p>Oops.. something went wrong...</p>
+  ) : loading ? (  
     <p>...loading</p>
   ) : (
     <div className="comments-box">
@@ -39,6 +49,7 @@ export const Comments = () => {
                 <p className="lineBreaker"></p>
               </li>
               <DeleteComment comment={comment} />
+
             </>
           );
         })}
