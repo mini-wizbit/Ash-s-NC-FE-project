@@ -50,18 +50,16 @@ export const commentPost = (review_id, comment) => {
     });
 };
 
-export const reviewsByQueries = (review, sortByValue) => {
+export const reviewsByQueries = (theCategory, sortByValue, orderByValue) => {
   return gamesApi
     .get("/reviews", {
       params: {
-        review,
-        sortByValue,
+        category: theCategory,
+        sort_by: sortByValue,
+        order: orderByValue,
       },
     })
     .then(({ data }) => {
       return data.reviews;
     });
 };
-// make it a dynamic end point instead?
-//sort_by : sortByValue if undifined nope or goes with that option
-//when adding the params will NEED to be ALINED!!!!
