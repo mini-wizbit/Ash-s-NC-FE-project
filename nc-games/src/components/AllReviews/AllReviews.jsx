@@ -16,7 +16,7 @@ export const AllReviews = () => {
     setLoading(true);
     getReviews(theCategory)
       .then((ApiReviews) => {
-        setIsError(true);
+        setIsError(false);
         setLoading(false);
         setReviews(ApiReviews.reviews);
       })
