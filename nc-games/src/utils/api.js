@@ -49,3 +49,17 @@ export const commentPost = (review_id, comment) => {
       return data;
     });
 };
+
+export const reviewsByQueries = (theCategory, sortByValue, orderByValue) => {
+  return gamesApi
+    .get("/reviews", {
+      params: {
+        category: theCategory,
+        sort_by: sortByValue,
+        order: orderByValue,
+      },
+    })
+    .then(({ data }) => {
+      return data.reviews;
+    });
+};
