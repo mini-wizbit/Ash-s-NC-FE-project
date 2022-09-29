@@ -89,3 +89,9 @@ export const deleteCommentById = (comment_id) => {
     return result.data;
   });
 };
+
+export const getUsers = () => {
+  return gamesApi.get("/users").then(({ data }) => {
+    return data;
+  });
+};
