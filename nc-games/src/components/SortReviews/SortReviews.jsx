@@ -2,37 +2,37 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
 import { reviewsByQueries } from "../../utils/api";
+import { OrderByX } from "../OrderByX/OrderByX";
 import { SortByX } from "../SortByX/SortByX";
 
-export const SortReviews =({setReviews})=>{
+export const SortReviews =({setReviews, theCategory})=>{
     //code
     const{review} = useParams()
     const[loading, setLoading] = useState(true)
-    const[sortByValue, setSortByValue] = useState("created_at") //<-?
+    const[sortByValue, setSortByValue] = useState(undefined) //<-?
     const[orderByValue, setOrderByValue]= useState("desc")
-    const[searchBy, setSearchBy]= useSearchParams({
-        sort_by: "",
-        order: "",
-    })
+    
+    console.log(review, "<<");
 
     useEffect(()=>{
         setLoading(true)
-        reviewsByQueries(review, sortByValue)
+        reviewsByQueries(theCategory,sortByValue, orderByValue)
         .then((reviewsFromApi)=>{
-            console.log(reviewsFromApi,"<back in sort reviews");
             setReviews(reviewsFromApi)
             setLoading(false)
         })
-    },[review, sortByValue, orderByValue])
+    },[sortByValue, orderByValue])
 
-    return(
+    console.log(orderByValue, "<<< order");    return(
         <div>
             <SortByX 
             sortByValue={sortByValue}
             setSortByValue={setSortByValue}
-            setSearchBy={setSearchBy}
             ></SortByX>
-            <p>Placeholder in SORT</p>
+            <OrderByX
+            orderByValue={orderByValue}
+            setOrderByValue={setOrderByValue}
+            ></OrderByX>
         </div>
     )
 }
