@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getReviews } from "../../utils/api";
 import CategoryList from "../CategoriesList/CategoriesList.jsx";
+import { Loading } from "../Loader/Loader";
 import { SortReviews } from "../SortReviews/SortReviews";
 import "./AllReviews.css";
 
@@ -29,7 +30,10 @@ export const AllReviews = () => {
   return isError ? (
     <p>Oops... something went wrong.</p>
   ) : loading ? (
-    <p>...Loading please wait</p>
+    <>
+      <Loading></Loading>
+      <p>...Loading please wait</p>
+    </>
   ) : (
     <div>
       <CategoryList setTheCategory={setTheCategory}></CategoryList>
@@ -49,9 +53,11 @@ export const AllReviews = () => {
                   alt={review.title}
                 ></img>
                 <div className="review-extras">
-                  <h3 className="review-owner">Review by {review.owner}</h3>
+                  <h3 className="review-owner">Review by</h3>
+                  <h3 className="review-owner">{review.owner}</h3>
                   <h4 className="review-votes"> Votes:{review.votes}</h4>
-                  <p className="review-category">Category:{review.category}</p>
+                  <p className="review-category"> Category:</p>
+                  <p className="review-categoryV2">{review.category}</p>
                   <Link
                     to={`/reviews/${review.review_id}`}
                     key={review.review_id}

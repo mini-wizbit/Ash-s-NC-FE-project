@@ -14,7 +14,7 @@ const CategoryList = ({ setTheCategory }) => {
   }, []);
 
   return (
-    <div>
+    <div className="category-box">
       <ul>
         <li key="All" className="category-list">
           <Link

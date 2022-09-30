@@ -1,0 +1,16 @@
+.NavBar{
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    display:inline-flex;
+    justify-content: center;
+}
+.NavList{
+    width: auto;
+    background-color: #9edef9;
+    border-radius: 1rem;
+    box-shadow: 0 5px 5px rgba(0,0,0,0.5);
+    padding: 1rem 2rem 1rem 2rem;
+    display: inline-block;
+    margin: 10px 10px;
+}

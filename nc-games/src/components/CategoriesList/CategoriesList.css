@@ -1,14 +1,23 @@
 .category-list{
-    margin-left: auto;
-    margin-right: auto;
-    width: 30%;
+        width: 33%;
+        height: 10%;
     background-color: #9edef9;
     border-radius: 1rem;
     box-shadow: 0 5px 5px rgba(0,0,0,0.5);
-    padding: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-sizing: border-box;
-    margin-bottom: 20px;
+    padding: .75rem;
+    display: inline-block;
+    margin: 10px 10px;
+    
+}
+.category-box{
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    height: 50%;
+    display:inline-flex;
+    /* border-style: solid;
+    border-color: black;
+    border-radius: 1px; */
+    justify-content: center;
+    padding-bottom: 2rem;
 }

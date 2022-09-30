@@ -7,7 +7,7 @@ export const SortByX = ({ sortByValue, setSortByValue }) => {
 
   return (
     <>
-      <label>
+      <label className="sortBy">
         Sort By:
         <select className="dropdown" onChange={handleSort} value={sortByValue}>
           <option value="title">Title</option>

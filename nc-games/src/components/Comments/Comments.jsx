@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { commentsById } from "../../utils/api";
 import { DeleteComment } from "../DeleteComments/DeleteComment";
+import { Loading } from "../Loader/Loader";
 import "./Comments.css";
 export const Comments = () => {
   const { review_id } = useParams();
@@ -31,7 +32,10 @@ export const Comments = () => {
   return isError ? (
     <p>Oops.. something went wrong...</p>
   ) : loading ? (
-    <p>...loading</p>
+    <>
+      <Loading></Loading>
+      <p>...loading</p>
+    </>
   ) : (
     <>
       <h2 className="comments-title">Comments</h2>

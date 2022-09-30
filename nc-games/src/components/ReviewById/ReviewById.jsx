@@ -8,6 +8,7 @@ import "./ReviewById.css";
 import { PostComment } from "../PostComment/PostComment";
 
 import { Comments } from "../Comments/Comments";
+import { Loading } from "../Loader/Loader";
 
 export const ReviewById = () => {
   const { review_id } = useParams();
@@ -60,7 +61,10 @@ export const ReviewById = () => {
   return error ? (
     <p>Oops... something went wrong please try again</p>
   ) : loading ? (
-    <p>...Loading</p>
+    <>
+      <Loading></Loading>
+      <p>...Loading</p>
+    </>
   ) : (
     <>
       <div className="reviewById-card">
