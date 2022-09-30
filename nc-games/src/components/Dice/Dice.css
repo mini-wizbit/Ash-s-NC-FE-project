@@ -1,0 +1,114 @@
+.container{
+    height: 60vh;
+    width: 30vh;
+    top:50vh;
+    left: 60vh;
+    position: absolute;
+    perspective: 1000px;
+}
+.box{
+height: 250px;
+width: 250px;
+position: absolute;
+/* transform: rotate(90deg); */
+transform-style: preserve-3d;
+transform: rotateY(30deg);
+animation: animate 5s infinite;
+}
+@keyframes animate {
+    0% {
+        transform:  rotateX(45deg) rotateY(-45deg);
+    }
+    25% {
+        transform:  rotateX(-45deg) rotateY(-45deg);
+    }
+    50% {
+        transform:  rotateX(45deg) rotateY(45deg);
+    }
+    75% {
+        transform:  rotateX(-45deg) rotateY(45deg);
+    }
+    100% {
+        transform:  rotateX(45deg) rotateY(-45deg);
+    }
+}
+.card{ 
+    height: 250px;
+    width: 250px;
+    text-align: center;
+    padding: 100px, 0px;
+    color:bisque;
+    background: black;
+    border: 2px solid white;
+    font-size: 2.5rem;
+    box-sizing: border-box;
+    position: absolute;
+    transition: all 1s;
+    border-radius: 1rem;
+}
+#front{
+    transform: translateZ(125px);
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/2/2c/Alea_1.png?20080604101318");
+    background-size: cover;
+}
+#back{
+    transform: translateZ(-125px);
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/f/f4/Alea_6.png");
+    background-size: cover;
+}
+#left{
+    right: 125px;
+    transform:  rotateY(-90deg);
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/5/55/Alea_5.png?20080604102238");
+    background-size: cover;
+}
+#right{
+    left: 125px;
+    transform:  rotateY(90deg);
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/b/b8/Alea_2.png?20080604101658");
+    background-size: cover;
+}#top{
+    bottom: 125px;
+    transform:  rotateX(90deg);
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/2/2f/Alea_3.png?20080604101840");
+    background-size: cover;
+}#bottom{
+    top: 125px;
+    transform:  rotateX(-90deg);
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/8/8d/Alea_4.png");
+    background-size: cover;
+}
+input{
+    height: 50px;
+    width: 100px;
+    background: green;
+    color: bisque;
+    position: absolute;
+    top: -200px;
+    left: 75px;
+}
+input:focus~ .box #front{
+    transform: translateZ(180px) rotateY(360deg);
+}
+input:focus~ .box #back{
+    transform: translateZ(-180px) rotateY(360deg);
+}
+input:focus~ .box #left{
+    right: 180px;
+}
+input:focus~ .box #right{
+    left: 180px;
+}
+input:focus~ .box #top{
+    bottom: 180px;
+}
+input:focus~ .box #bottom{
+    top: 180px;
+}
+
+@media screen and (max-width: 480px) {
+    .container{
+        left: 70px;
+        top: 522px;
+    }
+}

@@ -1,0 +1,36 @@
+button {
+    width: 25%;
+    display: inline-block;
+    padding: 0.75rem;
+    background-color: darkblue;
+    color: bisque;
+    border-radius: 1rem;
+    margin: 0.5rem;
+    cursor: pointer;
+}
+.sortBy{
+    font-size: 2.25rem;
+    margin-right: 1.25rem;
+}
+.dropdown{
+    font-size: 2rem;
+    width: 40%;
+    height: 3rem;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+}
+@media screen and (max-width: 480px){
+    button {
+        width: 80%
+    }
+    .sortBy{
+        font-size: 1.5rem;
+    }
+    .dropdown{
+        padding: .5rem;
+        font-size: 1.5rem;
+    }
+}

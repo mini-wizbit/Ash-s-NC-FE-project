@@ -1,0 +1,40 @@
+.reviewById-card {
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #9edef9;
+    border-radius: 1rem;
+    box-shadow: 0 5px 5px rgba(0,0,0,0.5);
+    
+}
+.reviewById-card-Img{
+    width: 18.75rem;
+    height: 14rem;
+}
+.review-body{
+    text-align: center;
+    width: 80%;
+    font-size: 1.25rem;
+    border-radius: 1px;
+    border-style: solid;
+    border-color: black;
+    margin-left: auto;
+    margin-right: auto;
+}
+.votes{
+    font-size: 1.75rem;
+}
+.voted{
+    font-size: 1.25rem;
+}
+.yourVote{
+    font-size: 2rem;
+    font-weight: bold;
+    
+}
+.owner{
+    font-size: 2rem;
+}
+.category{
+    font-size: 1.5rem;
+}

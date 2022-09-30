@@ -4,6 +4,7 @@ import { useParams, useSearchParams } from "react-router-dom";
 import { reviewsByQueries } from "../../utils/api";
 import { OrderByX } from "../OrderByX/OrderByX";
 import { SortByX } from "../SortByX/SortByX";
+import "./SortReviews.css";
 
 export const SortReviews = ({ setReviews, theCategory }) => {
   const { review } = useParams();

@@ -3,10 +3,12 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { getReviewById, voteUpdate } from "../../utils/api";
+import "./ReviewById.css";
 
 import { PostComment } from "../PostComment/PostComment";
 
 import { Comments } from "../Comments/Comments";
+import { Loading } from "../Loader/Loader";
 
 export const ReviewById = () => {
   const { review_id } = useParams();
@@ -59,24 +61,35 @@ export const ReviewById = () => {
   return error ? (
     <p>Oops... something went wrong please try again</p>
   ) : loading ? (
-    <p>...Loading</p>
+    <>
+      <Loading></Loading>
+      <p>...Loading</p>
+    </>
   ) : (
-    <div className="reviewById-card">
-      <h2>{reviewById.title}</h2>
-      <img
-        src={reviewById.review_img_url}
-        alt={reviewById.title}
-        className="reviewById-card-Img"
-      ></img>
-      <p>{reviewById.review_body}</p>
-      <h4>{reviewById.votes + vote}</h4>
-      <h4>{yourVote}</h4>
-      <button onClick={likeVote}>like</button>
-      <button onClick={dislikeVote}>dislike</button>
-      <h4>{reviewById.owner}</h4>
-      <p>{reviewById.category}</p>
-      <PostComment />
-      <Comments />
-    </div>
+    <>
+      <div className="reviewById-card">
+        <h2>{reviewById.title}</h2>
+        <img
+          src={reviewById.review_img_url}
+          alt={reviewById.title}
+          className="reviewById-card-Img"
+        ></img>
+        <p className="category">The {reviewById.category} game</p>
+        <p className="review-body">{reviewById.review_body}</p>
+        <h4 className="votes">Total votes: {reviewById.votes + vote}</h4>
+        <h4 className="yourVote">{yourVote}</h4>
+        <button className="voted" onClick={likeVote}>
+          like
+        </button>
+        <button className="voted" onClick={dislikeVote}>
+          dislike
+        </button>
+        <h4 className="owner">The review by {reviewById.owner}</h4>
+      </div>
+      <div className="comments">
+        <PostComment />
+        <Comments />
+      </div>
+    </>
   );
 };

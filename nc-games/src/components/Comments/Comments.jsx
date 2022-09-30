@@ -3,7 +3,8 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { commentsById } from "../../utils/api";
 import { DeleteComment } from "../DeleteComments/DeleteComment";
-
+import { Loading } from "../Loader/Loader";
+import "./Comments.css";
 export const Comments = () => {
   const { review_id } = useParams();
   const [comments, setComments] = useState([]);
@@ -20,7 +21,6 @@ export const Comments = () => {
         setLoading(false);
         setComments(apiCommentsById);
       }
-
     });
   }, [review_id]);
 
@@ -29,31 +29,34 @@ export const Comments = () => {
     return timeStr;
   };
 
-
   return isError ? (
     <p>Oops.. something went wrong...</p>
-  ) : loading ? (  
-    <p>...loading</p>
+  ) : loading ? (
+    <>
+      <Loading></Loading>
+      <p>...loading</p>
+    </>
   ) : (
-    <div className="comments-box">
-      <h2>Comments</h2>
-      <ul>
-        {comments.map((comment) => {
-          return (
-            <>
-              <li key={comment.comment_id}>
-                <h4>Made By{comment.author}</h4>
-                <p>{comment.body}</p>
-                <p>This has {comment.votes} likes</p>
-                <p>{realTime(comment.created_at)}</p>
-                <p className="lineBreaker"></p>
-              </li>
-              <DeleteComment comment={comment} />
-
-            </>
-          );
-        })}
-      </ul>
-    </div>
+    <>
+      <h2 className="comments-title">Comments</h2>
+      <div className="comments-box">
+        <ul>
+          {comments.map((comment) => {
+            return (
+              <div className="each-comment">
+                <li key={comment.comment_id}>
+                  <h4>Made By{comment.author}</h4>
+                  <p>{comment.body}</p>
+                  <p>This has {comment.votes} likes</p>
+                  <p>{realTime(comment.created_at)}</p>
+                  <p className="lineBreaker"></p>
+                </li>
+                <DeleteComment comment={comment} />
+              </div>
+            );
+          })}
+        </ul>
+      </div>
+    </>
   );
 };

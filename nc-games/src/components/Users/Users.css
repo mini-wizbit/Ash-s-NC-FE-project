@@ -1,0 +1,25 @@
+
+
+.users-box{
+    display: inline-flexbox;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 25px;
+        width: 40%;
+        height: 15%;
+        background-color: #9edef9;
+        border-radius: 1rem;
+        box-shadow: 0 5px 5px rgba(0,0,0,0.5);
+        padding: 1.25rem;
+    }
+.users-box img{
+    height: 200px;
+    width: 200px;
+    border-radius: 100%;
+}
+@media screen and (max-width: 480px){
+.users-box{
+    width: 80%;
+}
+}
+    
