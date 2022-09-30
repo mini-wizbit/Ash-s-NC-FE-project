@@ -1,9 +1,11 @@
 .container{
-    height: 60vh;
-    width: 30vh;
-    top:50vh;
-    left: 60vh;
+    height: 200px;
+    width: 200px;
+    top: 30rem;
+    left: 40%;
     position: absolute;
+    margin-left: auto;
+    margin-right: auto;
     perspective: 1000px;
 }
 .box{
@@ -78,7 +80,7 @@ animation: animate 5s infinite;
     background-image: url("https://upload.wikimedia.org/wikipedia/commons/8/8d/Alea_4.png");
     background-size: cover;
 }
-input{
+.button {
     height: 50px;
     width: 100px;
     background: green;

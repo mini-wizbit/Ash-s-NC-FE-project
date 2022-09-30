@@ -4,7 +4,7 @@ import "./Dice.css";
 export const Dice = () => {
   return (
     <div className="container">
-      <input type="button" value="Click Me!"></input>
+      <input className="button" type="button" value="Click Me!"></input>
       <div className="box">
         <div className="card" id="front">
           front
