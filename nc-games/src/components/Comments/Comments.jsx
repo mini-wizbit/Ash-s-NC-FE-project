@@ -44,7 +44,7 @@ export const Comments = () => {
           {comments.map((comment) => {
             return (
               <div className="each-comment">
-                <li key={comment.comment_id}>
+                <li className="Comment-list" key={comment.comment_id}>
                   <h4>Made By{comment.author}</h4>
                   <p>{comment.body}</p>
                   <p>This has {comment.votes} likes</p>

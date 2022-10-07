@@ -28,13 +28,11 @@ export const Users = () => {
       <ul>
         {users.map((user) => {
           return (
-            <div className="users-box">
-              <li>
-                <img src={user.avatar_url} alt="Users chosen Image"></img>
-                <h2 className="Username">{user.username}</h2>
-                <h3 className="realname">{user.name}</h3>
-              </li>
-            </div>
+            <li className="users-box">
+              <img src={user.avatar_url} alt="Users chosen Image"></img>
+              <h2 className="Username">{user.username}</h2>
+              <h3 className="realname">{user.name}</h3>
+            </li>
           );
         })}
       </ul>

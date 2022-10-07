@@ -11,6 +11,7 @@
         border-radius: 1rem;
         box-shadow: 0 5px 5px rgba(0,0,0,0.5);
         padding: 1.25rem;
+        list-style: none;
     }
 .users-box img{
     height: 200px;

@@ -22,3 +22,6 @@
 .each-comment{
     font-size: 1.5rem;
 }
+.Comment-list{
+    list-style: none;
+}
