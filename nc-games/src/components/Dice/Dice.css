@@ -1,21 +1,17 @@
 .container{
-    height: 200px;
-    width: 200px;
-    top: 30rem;
-    left: 40%;
-    position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    perspective: 1000px;
+    position: relative;
+    padding: 35px 0px;
 }
 .box{
 height: 250px;
 width: 250px;
-position: absolute;
+position: relative;
 /* transform: rotate(90deg); */
 transform-style: preserve-3d;
 transform: rotateY(30deg);
 animation: animate 5s infinite;
+margin: 120px auto
+
 }
 @keyframes animate {
     0% {
